@@ -34,8 +34,8 @@ while op2:
             result=wikipedia.summary(infoplace, sentences=5)
             print(result)
             p_wiki=result.split()[0]
-            print("Reviews:")
-            show_reviews(con,infoplace,pl_wiki)
+            print("\nReviews:")
+            show_reviews(con,infoplace,p_wiki)
             ch=input("Do you want to add review?(y/n): ")
             if ch.lower()=="y":
                 create(con,infoplace)
