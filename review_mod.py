@@ -29,9 +29,9 @@ def create(conn,place):   #for writing reviews
         f=f+1
     curs.close()
 
-def show_reviews(conn,place):  #for displaying reviews
+def show_reviews(conn,place,pl_wiki):  #for displaying reviews
 	curs=conn.cursor()
-	curs.execute("SELECT usr_name,REVIEWS FROM Reviews WHERE Place=%s",(place,))
+	curs.execute("SELECT usr_name,REVIEWS FROM Reviews WHERE Place in (%s,%s)",(place,pl_wiki))
 	rev=curs.fetchall()
 	if rev:
 		for i in rev:
