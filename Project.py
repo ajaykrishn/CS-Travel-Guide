@@ -23,7 +23,7 @@ while con_check:
 
 op2=1
 print("Choose an option from the below listed : \n 1. Information of a place \n 2. Hotel Bookings \n 3. Add reviews for a place ")
-print("4. Exit")
+print(" 4. Exit")
 
 while op2:
     q=int(input("\n\nYour choice (1,2,3,4) : "))
@@ -33,14 +33,15 @@ while op2:
             infoplace=input("Enter the place you would like to know about : ")
             result=wikipedia.summary(infoplace, sentences=5)
             print(result)
+            p_wiki=result.split()[0]
             print("Reviews:")
-            show_reviews(con,infoplace)
+            show_reviews(con,infoplace,pl_wiki)
             ch=input("Do you want to add review?(y/n): ")
             if ch.lower()=="y":
                 create(con,infoplace)
             print()
         except:
-            print("Place not available")
+            print("Place not available.Please check spelling or other mistakes.")
         time.sleep(2)
 
     elif q==2:
