@@ -1,5 +1,5 @@
 def welcome(): #welcome message
-    print('Welcome Aboard to Travel Guide.This program has been designed to help you find information regarding places in the state of Kerala,India,accomodation as per your needs and reviews about destinations you are looking for.We hope this will be of help to you in finding what you are looking for!")  
+    print('Welcome Aboard to Travel Guide.This program has been designed to help you find information regarding places in the state of Kerala,India,accomodation as per your needs and reviews about destinations you are looking for.We hope this will be of help to you in finding what you are looking for!')
 
 def create_dbase(curs):
     curs.execute("SELECT count(*) FROM information_schema.TABLES WHERE (TABLE_SCHEMA = 'Review') AND (TABLE_NAME = 'Reviews')")
