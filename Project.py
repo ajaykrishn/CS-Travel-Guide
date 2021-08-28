@@ -42,7 +42,7 @@ while op2:
                 create(con,infoplace)
             print()
         except:
-            print("Place not available.Please check spelling or other mistakes.")
+            print("Place is not available in our database.Please check spelling or other mistakes.")
         time.sleep(2)
 
     elif q==2:
@@ -58,7 +58,7 @@ while op2:
     elif q==3:
         op3=1
         while op3:
-            print("\n\nEnter a :To write a review \nEnter b :To edit a review \nEnter c : To delete a review \nEnter d : Exit From this option.")
+            print("\n\nEnter a : To write a review \nEnter b : To edit a review \nEnter c : To delete a review \nEnter d : Exit From this option.")
             op4=input("\n\nYour choice (a,b,c,d) : ")
             if op4=='a':
                 p=input("Enter the Place: ")
