@@ -26,7 +26,7 @@ while con_check:
 op2=1
 
 while op2:
-    print('\nChoose an option from the below listed : \n\n 1. Information of a place \n 2. Hotel Bookings \n 3. Add reviews for a place \n 4. Exit. ')
+    print('\nChoose an option from the below listed : \n\n 1. Information of a place \n 2. Hotel Bookings \n 3. Edit/Remove reviews \n 4. Exit. ')
     q=int(input("\n\nYour choice (1,2,3,4) : "))
 
     if q==1:
@@ -56,9 +56,9 @@ while op2:
         time.sleep(2)
 
     elif q==3:
-        print("\n\nEnter a :To write a review \nEnter b :To edit a review \nEnter c : To delete a review \nEnter d : Exit From this option.")
         op3=1
         while op3:
+            print("\n\nEnter a :To write a review \nEnter b :To edit a review \nEnter c : To delete a review \nEnter d : Exit From this option.")
             op4=input("\n\nYour choice (a,b,c,d) : ")
             if op4=='a':
                 p=input("Enter the Place: ")
