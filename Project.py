@@ -5,7 +5,9 @@ from review_mod import *             #program module
 import mysql.connector as mysql  #install by : pip install mysql-connector-python
 import time                   #built-in module
 
+
 welcome()
+
 
 con_check=1
 while con_check:
@@ -15,17 +17,16 @@ while con_check:
         con=mysql.connect(host='localhost',user=usr,passwd=psw)
         curs=con.cursor()
         create_dbase(curs)
-        print("WELCOME!")
+        print("\n\t\tWELCOME!")
         con_check=0
     except Exception as e:
         print(e)
         print("Please try again.\n")
 
 op2=1
-print("Choose an option from the below listed : \n 1. Information of a place \n 2. Hotel Bookings \n 3. Add reviews for a place ")
-print(" 4. Exit")
 
 while op2:
+    print('\nChoose an option from the below listed : \n\n 1. Information of a place \n 2. Hotel Bookings \n 3. Add reviews for a place \n 4. Exit. ')
     q=int(input("\n\nYour choice (1,2,3,4) : "))
 
     if q==1:
@@ -55,7 +56,7 @@ while op2:
         time.sleep(2)
 
     elif q==3:
-        print("Enter a :To write a review \nEnter b :To edit a review \nEnter c : To delete a review \nEnter d : Exit From this option.")
+        print("\n\nEnter a :To write a review \nEnter b :To edit a review \nEnter c : To delete a review \nEnter d : Exit From this option.")
         op3=1
         while op3:
             op4=input("\n\nYour choice (a,b,c,d) : ")
@@ -68,6 +69,7 @@ while op2:
                 delete(con)
             elif op4=="d":
                 op3=0
+
             else:
                 print("Kindly enter a valid option")
             time.sleep(1)
