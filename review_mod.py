@@ -1,13 +1,27 @@
 def welcome(): #welcome message
     print('\t\t\t\t𝐖𝐄𝐋𝐂𝐎𝐌𝐄! \n\nThis program has been designed to help you find information regarding places \nWe hope this will be of help to you in finding what you are looking for! \n\t\t\t\t\t\t\t\t\tᴹᵃᵈᵉ ᵇʸ ᴬʲᵃʸ,ᴬᵐᵘʳᵗʰᵃ,ᴬʸᵈᶦⁿ\n')
 
+def create_rev(fname,curso):
+    fd = open(fname, 'r')
+    sqlFile = fd.read()
+    fd.close()
+    sqlCommands = sqlFile.split(';')
+
+    for command in sqlCommands:
+        try:
+            if command.strip() != '':
+                curso.execute(command)
+        except IOError as msg:
+            print("Command skipped: ", msg)
+
 def create_dbase(curs):
     curs.execute("SELECT count(*) FROM information_schema.TABLES WHERE (TABLE_SCHEMA = 'Review') AND (TABLE_NAME = 'Reviews')")
     c=curs.fetchone()[0]
     if c==0:
         curs.execute("Create Database Review")
         curs.execute("Use Review")
-        curs.execute("Create table Reviews(rev_id int primary key,usr_name varchar(30),Place varchar(50),Reviews varchar(250))")
+        path=os.getcwd().replace('\\','/')+"/review_reviews.sql"
+        create_rev(path,curs)
     else:
         curs.execute("Use Review")
 
@@ -19,8 +33,6 @@ def create(conn,place):   #for writing reviews
         name=input("Enter Your name: ")
         curs.execute("SELECT max(rev_id) FROM Reviews")
         n=curs.fetchone()[0]
-	if n==None:
-		n=1000
         print("Reference id for editing or deleting your review is: ",n+1)
         t=(n+1,name,place,m)
         s='insert into Reviews values(%s,%s,%s,%s)'
