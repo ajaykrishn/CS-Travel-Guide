@@ -46,14 +46,35 @@ while op2:
         time.sleep(2)
 
     elif q==2:
-        print('\n\nService is currently only supporting hotels in Kerala \nYou will be redirected to an external website')
-        print("Please enter information asked below :")
-        place=input("\nEnter Destination : ")
-        adults=int(input("Enter total number of Adults : "))
-        children=int(input("Enter total number of children : "))
-        x=("https://www.yatra.com/pwa/hotels/srp?roomRequests[0].id=1&roomRequests[0].noOfAdults={}&roomRequests[0].noOfChildren={}&source=BOOKING_ENGINE&pg=1&tenant=B2C&isPersnldSrp=1&city.name={}&city.code={}&state.name=KER&state.code=KER&country.name=India&country.code=IND".format(adults,children,place,place))
-        webbrowser.open(x, new=1)
-        time.sleep(2)
+        bk=1
+        print("\n\nEnter the website you would prefer to do your Hotel Booking in : \n 1. Yatra\n 2. Easemytrip\n 3. Exit \n\n")
+        while bk:
+            choice=input("Your response :")
+            if choice=="1":
+                place=input("\nEnter Destination : ")
+                adults=int(input("Enter total number of Adults : "))
+                children=int(input("Enter total number of children : "))
+                yatra=("https://www.yatra.com/pwa/hotels/srp?roomRequests[0].id=1&roomRequests[0].noOfAdults={}&roomRequests[0].noOfChildren={}&source=BOOKING_ENGINE&pg=1&tenant=B2C&isPersnldSrp=1&city.name={}&city.code={}&state.name=KER&state.code=KER&country.name=India&country.code=IND".format(adults,children,place,place))
+                print("You are being redirected")
+                webbrowser.open(yatra, new=1)
+                bk=0
+            elif choice=="2":
+                destination=input("Enter your Destination : ")
+                checkin=input("Enter Check-in date in format DD/MM/YYYY : ")
+                checkout=input("Enter Check-out date in format DD/MM/YYYY : ")
+                pax=input("Enter number of adults : ")
+                rooms=input("Enter number of rooms required : ")
+                easemytrip=("https://hotels.easemytrip.com/newhotel/Hotel/HotelListing?e=202193214436&city={},%20India&cin={}&cOut={}&Hotel=NA&Rooms={}&pax={}".format(destination,checkin,checkout,rooms,pax))
+                print("You are being redirected")
+                webbrowser.open(easemytrip,new=1)
+                bk=0
+            elif choice=="3":
+                bk=0
+            else:
+                print("Sorry , please enter a valid option")
+
+            time.sleep(2)
+
 
     elif q==3:
         op3=1
