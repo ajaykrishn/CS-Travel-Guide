@@ -26,8 +26,8 @@ while con_check:
 op2=1
 
 while op2:
-    print('\n\t\t Main Menu\n\nChoose an option from the below listed : \n\n 1. Information of a place \n 2. Hotel Bookings \n 3. Reviews \n 4. Exit. ')
-    q=int(input("\n\nYour choice (1,2,3,4) : "))
+    print('\n\t\t𝐌𝐚𝐢𝐧 𝐌𝐞𝐧𝐮\n\n𝐂𝐡𝐨𝐨𝐬𝐞 𝐚𝐧 𝐨𝐩𝐭𝐢𝐨𝐧 𝐟𝐫𝐨𝐦 𝐭𝐡𝐞 𝐛𝐞𝐥𝐨𝐰 𝐥𝐢𝐬𝐭𝐞𝐝 : \n\n 1. 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧 𝐨𝐟 𝐚 𝐩𝐥𝐚𝐜𝐞 \n 2. 𝐇𝐨𝐭𝐞𝐥 𝐁𝐨𝐨𝐤𝐢𝐧𝐠𝐬 \n 3. 𝐑𝐞𝐯𝐢𝐞𝐰𝐬 \n 4. 𝐄𝐱𝐢𝐭 ')
+    q=int(input("\n\nYour choice (𝟏,𝟐,𝟑,𝟒) : "))
 
     if q==1:
         try:
@@ -47,7 +47,7 @@ while op2:
 
     elif q==2:
         bk=1
-        print("\n\nEnter the website you would prefer to do your Hotel Booking in : \n 1. Yatra\n 2. Easemytrip\n 3. Exit \n\n")
+        print("\n\n𝐄𝐧𝐭𝐞𝐫 𝐭𝐡𝐞 𝐰𝐞𝐛𝐬𝐢𝐭𝐞 𝐲𝐨𝐮 𝐰𝐨𝐮𝐥𝐝 𝐩𝐫𝐞𝐟𝐞𝐫 𝐭𝐨 𝐝𝐨 𝐲𝐨𝐮𝐫 𝐇𝐨𝐭𝐞𝐥 𝐁𝐨𝐨𝐤𝐢𝐧𝐠 𝐢𝐧 : \n 1. 𝐘𝐚𝐭𝐫𝐚\n 2. 𝐄𝐚𝐬𝐞𝐦𝐲𝐭𝐫𝐢𝐩\n 3. 𝐄𝐱𝐢𝐭 \n\n")
         while bk:
             choice=input("Your response :")
             if choice=="1":
@@ -79,8 +79,8 @@ while op2:
     elif q==3:
         op3=1
         while op3:
-            print("\n\nEnter a : To write a review \nEnter b : To edit a review \nEnter c : To delete a review \nEnter d : Exit From this option.")
-            op4=input("\n\nYour choice (a,b,c,d) : ")
+            print("\n\n𝐄𝐧𝐭𝐞𝐫 a : 𝐓𝐨 𝐰𝐫𝐢𝐭𝐞 𝐚 𝐫𝐞𝐯𝐢𝐞𝐰 \n𝐄𝐧𝐭𝐞𝐫 b : 𝐓𝐨 𝐞𝐝𝐢𝐭 𝐚 𝐫𝐞𝐯𝐢𝐞𝐰 \n𝐄𝐧𝐭𝐞𝐫 c : 𝐓𝐨 𝐝𝐞𝐥𝐞𝐭𝐞 𝐚 𝐫𝐞𝐯𝐢𝐞𝐰 \n𝐄𝐧𝐭𝐞𝐫 d : 𝐄𝐱𝐢𝐭 𝐅𝐫𝐨𝐦 𝐭𝐡𝐢𝐬 𝐨𝐩𝐭𝐢𝐨𝐧")
+            op4=input("\n\n𝐘𝐨𝐮𝐫 𝐜𝐡𝐨𝐢𝐜𝐞 (𝐚,𝐛,𝐜,𝐝) : ")
             if op4=='a':
                 p=input("Enter the Place: ")
                 create(con,p)
@@ -104,5 +104,5 @@ while op2:
 curs.close()
 con.close()
 
-print("Thank you for using our Service.")
+print("𝑻𝒉𝒂𝒏𝒌 𝒚𝒐𝒖 𝒇𝒐𝒓 𝒖𝒔𝒊𝒏𝒈 𝒐𝒖𝒓 𝑺𝒆𝒓𝒗𝒊𝒄𝒆.")
 time.sleep(3)
