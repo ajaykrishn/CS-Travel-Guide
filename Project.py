@@ -17,7 +17,7 @@ while con_check:
         con=mysql.connect(host='localhost',user=usr,passwd=psw)
         curs=con.cursor()
         create_dbase(curs)
-        print("\n\t\tWELCOME!")
+        print("\n\t\t Main Menu")
         con_check=0
     except Exception as e:
         print(e)
