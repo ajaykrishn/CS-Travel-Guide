@@ -8,7 +8,6 @@ def create_dbase(curs):
         curs.execute("Create Database Review")
         curs.execute("Use Review")
         curs.execute("Create table Reviews(rev_id int primary key,usr_name varchar(30),Place varchar(50),Reviews varchar(250))")
-        curs.execute("Insert into Reviews values(1000,'admin','test','test_review')")
     else:
         curs.execute("Use Review")
 
@@ -20,6 +19,8 @@ def create(conn,place):   #for writing reviews
         name=input("Enter Your name: ")
         curs.execute("SELECT max(rev_id) FROM Reviews")
         n=curs.fetchone()[0]
+	if n==None:
+		n=1000
         print("Reference id for editing or deleting your review is: ",n+1)
         t=(n+1,name,place,m)
         s='insert into Reviews values(%s,%s,%s,%s)'
