@@ -17,7 +17,7 @@ while con_check:
         con=mysql.connect(host='localhost',user=usr,passwd=psw)
         curs=con.cursor()
         create_dbase(curs)
-        print("\n\t\t Main Menu")
+        print("\nMySQL connection ✅")
         con_check=0
     except Exception as e:
         print(e)
@@ -26,7 +26,7 @@ while con_check:
 op2=1
 
 while op2:
-    print('\nChoose an option from the below listed : \n\n 1. Information of a place \n 2. Hotel Bookings \n 3. Reviews \n 4. Exit. ')
+    print('\n\t\t Main Menu\n\nChoose an option from the below listed : \n\n 1. Information of a place \n 2. Hotel Bookings \n 3. Reviews \n 4. Exit. ')
     q=int(input("\n\nYour choice (1,2,3,4) : "))
 
     if q==1:
