@@ -50,7 +50,7 @@ while op2:
         print("Please enter information asked below :")
         place=input("\nEnter Destination : ")
         adults=int(input("Enter total number of Adults : "))
-        children=int(input("enter total number of children : "))
+        children=int(input("Enter total number of children : "))
         x=("https://www.yatra.com/pwa/hotels/srp?roomRequests[0].id=1&roomRequests[0].noOfAdults={}&roomRequests[0].noOfChildren={}&source=BOOKING_ENGINE&pg=1&tenant=B2C&isPersnldSrp=1&city.name={}&city.code={}&state.name=KER&state.code=KER&country.name=India&country.code=IND".format(adults,children,place,place))
         webbrowser.open(x, new=1)
         time.sleep(2)
