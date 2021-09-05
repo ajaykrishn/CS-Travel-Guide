@@ -44,7 +44,7 @@ def create(conn,place):   #for writing reviews
 
 def show_reviews(conn,place,pl_wiki):  #for displaying reviews
 	curs=conn.cursor()
-	curs.execute("SELECT usr_name,REVIEWS,revdate,trvl,avl FROM Reviews WHERE Place in (%s,%s)",(place,pl_wiki))
+	curs.execute("SELECT usr_name,REVIEWS,revdate,trvl_avl FROM Reviews WHERE Place in (%s,%s)",(place,pl_wiki))
 	rev=curs.fetchall()
 	if rev:
 		for i in rev:
