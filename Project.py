@@ -1,6 +1,5 @@
 import webbrowser               #built-in module
 import wikipedia                 #install by : pip install wikipedia
-from PIL import Image           #install by : pip install Pillow
 from review_mod import *             #program module
 import mysql.connector as mysql  #install by : pip install mysql-connector-python
 import time                   #built-in module
@@ -35,6 +34,7 @@ while op2:
             result=wikipedia.summary(infoplace, sentences=5)
             print(result)
             p_wiki=result.split()[0]
+            status(con,infoplace,p_wiki)
             print("\nReviews:")
             show_reviews(con,infoplace,p_wiki)
             ch=input("Do you want to add review?(y/n): ")
