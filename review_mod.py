@@ -1,7 +1,7 @@
 def welcome(): #welcome message
     print('\t\t\t\t𝐖𝐄𝐋𝐂𝐎𝐌𝐄! \n\nThis program has been designed to help you find information regarding places \nWe hope this will be of help to you in finding what you are looking for! \n\t\t\t\t\t\t\t\t\tᴹᵃᵈᵉ ᵇʸ ᴬʲᵃʸ,ᴬᵐᵘʳᵗʰᵃ,ᴬʸᵈᶦⁿ\n')
 
-def create_rev(fname,curso):
+def create_rev(fname,curso):  #creating database from dump file
     fd = open(fname, 'r')
     sqlFile = fd.read()
     fd.close()
@@ -14,7 +14,7 @@ def create_rev(fname,curso):
         except IOError as msg:
             print("Command skipped: ", msg)
 
-def create_dbase(curs):
+def create_dbase(curs):    #creating database
     curs.execute("SELECT count(*) FROM information_schema.TABLES WHERE (TABLE_SCHEMA = 'Review') AND (TABLE_NAME = 'Reviews')")
     c=curs.fetchone()[0]
     if c==0:
@@ -44,13 +44,14 @@ def create(conn,place):   #for writing reviews
 
 def show_reviews(conn,place,pl_wiki):  #for displaying reviews
 	curs=conn.cursor()
-	curs.execute("SELECT usr_name,REVIEWS FROM Reviews WHERE Place in (%s,%s)",(place,pl_wiki))
+	curs.execute("SELECT usr_name,REVIEWS,revdate,trvl,avl FROM Reviews WHERE Place in (%s,%s)",(place,pl_wiki))
 	rev=curs.fetchall()
 	if rev:
 		for i in rev:
-			print(i[0],':',i[1])
+			print(i[0],'  ',i[2],'\n',i[1])
 	else:
 		print("No Reviews were Found.")
+	print()
 	curs.close()
 
 def edit(conn):     #for editing reviews previously entered
@@ -79,6 +80,12 @@ def delete(conn): #for deleting reviews previously entered
     conn.commit()
     curs.close()
 
+def status(conn,pl,plw):
+    curs=conn.cursor()
+    curs.execute("SELECT trvl_avl,rev_id FROM Reviews WHERE Place=%s or Place=%s GROUP BY revdate HAVING revdate=max(revdate);",(pl,plw))
+    sta=curs.fetchall()[0][0]
+    print("Current Status: ",sta)
+    curs.close()
 
 
 	
