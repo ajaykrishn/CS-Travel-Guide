@@ -89,6 +89,9 @@ while op2:
             elif op4=="c":
                 delete(con)
             elif op4=="d":
+                show_reviews(con)
+            elif op4=='e':
+                op3=0
                 
 
             else:
