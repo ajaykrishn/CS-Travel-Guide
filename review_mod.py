@@ -1,5 +1,5 @@
 def welcome(): #welcome message
-    print('\t\t\t\t𝐖𝐄𝐋𝐂𝐎𝐌𝐄! \n\nThis program has been designed to help you find information regarding places \nWe hope this will be of help to you in finding what you are looking for! \n\t\t\t\t\t\t\t\t\tᴹᵃᵈᵉ ᵇʸ ᴬʲᵃʸ,ᴬᵐᵘʳᵗʰᵃ,ᴬʸᵈᶦⁿ\n')
+    print('\t\t\t\tWELCOME! \n\nThis program has been designed to help you find information regarding places \nWe hope this will be of help to you in finding what you are looking for! \n\t\t\t\t\t\t\t\t\tᴹᵃᵈᵉ ᵇʸ ᴬʲᵃʸ,ᴬᵐᵘʳᵗʰᵃ,ᴬʸᵈᶦⁿ\n')
 
 def create_rev(fname,curso):  #creating database from dump file
     fd = open(fname, 'r')
