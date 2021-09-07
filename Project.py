@@ -1,8 +1,12 @@
 import webbrowser,time               #built-in modules
-import wikipedia                 #install by : pip install wikipedia
 from review_mod import *             #program module
 import booking
 from dtbs_mod import *        #program module
+try:
+    import wikipedia                 # by pip install wikipedia
+except:
+    import subprocess
+    subprocess.call('start /wait Run.py', shell=True) #install wikipedia
 
 welcome()
 
