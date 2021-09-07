@@ -1,3 +1,5 @@
+import os
+
 def create_rev(fname,curso):  #creating database from dump file
     fd = open(fname, 'r')
     sqlFile = fd.read()
