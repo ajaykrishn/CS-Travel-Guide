@@ -19,7 +19,7 @@ def create(conn,place):   #for writing reviews
         f=f+1
     curs.close()
 
-def show_reviews(conn,place,pl_wiki):  #for displaying reviews
+def show_reviews_info(conn,place,pl_wiki):  #for displaying reviews
 	curs=conn.cursor()
 	curs.execute("SELECT usr_name,REVIEWS,revdate,trvl_avl FROM Reviews WHERE Place in (%s,%s)",(place,pl_wiki))
 	rev=curs.fetchall()
@@ -78,12 +78,12 @@ def show_reviews(conn,id,f="d"):
     r=curso.fetchone()
     place,rev=r[1],r[0]
     if r!=None:
-        if f='edit':
+        if f=='edit':
             print("Old review of",place,":",rev)
-        elif f='d':
+        elif f=='d':
             print("Your review of",place,":",rev)
     else:
-        if f='d':
+        if f=='d':
             print("Review id doesn't exist")
     curso.close()
 
