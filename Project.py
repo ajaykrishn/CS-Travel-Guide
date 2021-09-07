@@ -3,7 +3,7 @@ import wikipedia                 #install by : pip install wikipedia
 from review_mod import *             #program module
 import mysql.connector as mysql  #install by : pip install mysql-connector-python
 import time                   #built-in module
-
+import booking
 
 welcome()
 
@@ -51,22 +51,10 @@ while op2:
         while bk:
             choice=input("Your response :")
             if choice=="1":
-                place=input("\nEnter Destination : ")
-                adults=int(input("Enter total number of Adults : "))
-                children=int(input("Enter total number of children : "))
-                yatra=("https://www.yatra.com/pwa/hotels/srp?roomRequests[0].id=1&roomRequests[0].noOfAdults={}&roomRequests[0].noOfChildren={}&source=BOOKING_ENGINE&pg=1&tenant=B2C&isPersnldSrp=1&city.name={}&city.code={}&state.name=KER&state.code=KER&country.name=India&country.code=IND".format(adults,children,place,place))
-                print("You are being redirected")
-                webbrowser.open(yatra, new=1)
+                booking.yatra()
                 bk=0
             elif choice=="2":
-                destination=input("Enter your Destination : ")
-                checkin=input("Enter Check-in date in format DD/MM/YYYY : ")
-                checkout=input("Enter Check-out date in format DD/MM/YYYY : ")
-                pax=input("Enter number of adults : ")
-                rooms=input("Enter number of rooms required : ")
-                easemytrip=("https://hotels.easemytrip.com/newhotel/Hotel/HotelListing?e=202193214436&city={},%20India&cin={}&cOut={}&Hotel=NA&Rooms={}&pax={}".format(destination,checkin,checkout,rooms,pax))
-                print("You are being redirected")
-                webbrowser.open(easemytrip,new=1)
+                booking.easemytrip()
                 bk=0
             elif choice=="3":
                 bk=0
