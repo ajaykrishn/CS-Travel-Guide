@@ -1,22 +1,16 @@
-import webbrowser               #built-in module
+import webbrowser,time               #built-in modules
 import wikipedia                 #install by : pip install wikipedia
 from review_mod import *             #program module
 import mysql.connector as mysql  #install by : pip install mysql-connector-python
-import time                   #built-in module
 import booking
+from dtbs_mod import *        #program module
 
 welcome()
-
 
 con_check=1
 while con_check:
     try:
-        usr=input("Enter Username: ")
-        psw=input("Enter Password: ")
-        con=mysql.connect(host='localhost',user=usr,passwd=psw)
-        curs=con.cursor()
-        create_dbase(curs)
-        print("\nMySQL connection established ✅")
+        con=connectdb()
         con_check=0
     except Exception as e:
         print(e)
@@ -60,8 +54,7 @@ while op2:
                 bk=0
             else:
                 print("Sorry , please enter a valid option")
-
-            time.sleep(2)
+                time.sleep(1)
 
 
     elif q==3:
@@ -80,12 +73,10 @@ while op2:
                 show_reviews(con)
             elif op4=='e':
                 op3=0
-                
-
             else:
                 print("Kindly enter a valid option")
-            time.sleep(1)
-        time.sleep(2)
+                time.sleep(0.5)
+        time.sleep(0.7)
     elif q==4:
         op2=0
 
@@ -96,4 +87,4 @@ curs.close()
 con.close()
 
 print("Thank you for using this service")
-time.sleep(3)
+time.sleep(1.5)
