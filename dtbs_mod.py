@@ -1,4 +1,5 @@
 import os
+import mysql.connector as mysql
 
 def create_rev(fname,curso):  #creating database from dump file
     fd = open(fname, 'r')
