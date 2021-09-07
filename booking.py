@@ -1,5 +1,5 @@
 #Booking hotels
-
+import webbrowser
 def yatra():
    place=input("\nEnter Destination : ")
    adults=int(input("Enter total number of Adults : "))
