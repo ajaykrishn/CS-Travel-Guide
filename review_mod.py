@@ -1,29 +1,7 @@
+import os
+
 def welcome(): #welcome message
     print('\t\t\t\tWELCOME! \n\nThis program has been designed to help you find information regarding places \nWe hope this will be of help to you in finding what you are looking for! \n\t\t\t\t\t\t\t\t\tᴹᵃᵈᵉ ᵇʸ ᴬʲᵃʸ,ᴬᵐᵘʳᵗʰᵃ,ᴬʸᵈᶦⁿ\n')
-
-def create_rev(fname,curso):  #creating database from dump file
-    fd = open(fname, 'r')
-    sqlFile = fd.read()
-    fd.close()
-    sqlCommands = sqlFile.split(';')
-
-    for command in sqlCommands:
-        try:
-            if command.strip() != '':
-                curso.execute(command)
-        except IOError as msg:
-            print("Command skipped: ", msg)
-
-def create_dbase(curs):    #creating database
-    curs.execute("SELECT count(*) FROM information_schema.TABLES WHERE (TABLE_SCHEMA = 'Review') AND (TABLE_NAME = 'Reviews')")
-    c=curs.fetchone()[0]
-    if c==0:
-        curs.execute("Create Database Review")
-        curs.execute("Use Review")
-        path=os.getcwd().replace('\\','/')+"/review_reviews.sql"
-        create_rev(path,curs)
-    else:
-        curs.execute("Use Review")
 
 def create(conn,place):   #for writing reviews
     f=2
