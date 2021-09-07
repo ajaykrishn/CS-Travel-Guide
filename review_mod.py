@@ -1,3 +1,6 @@
+import os
+
+
 def welcome(): #welcome message
     print('\t\t\t\tWELCOME! \n\nThis program has been designed to help you find information regarding places \nWe hope this will be of help to you in finding what you are looking for! \n\t\t\t\t\t\t\t\t\tᴹᵃᵈᵉ ᵇʸ ᴬʲᵃʸ,ᴬᵐᵘʳᵗʰᵃ,ᴬʸᵈᶦⁿ\n')
 
