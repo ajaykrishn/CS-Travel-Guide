@@ -68,7 +68,7 @@ while op2:
         op3=1
         while op3:
             print("\n\nEnter a : To write review \nEnter b : To edit a review \nEnter c : To delete a review \nEnter d : To view previous reviews \nEnter e : Exit this option")
-            op4=input("\n\nYour choice (a,b,c,d) : ")
+            op4=input("\n\nYour choice (a,b,c,d,e) : ")
             if op4=='a':
                 p=input("Enter the Place: ")
                 create(con,p)
@@ -94,5 +94,5 @@ while op2:
 
 con.close()
 
-print("Thank you for using this service")
+print("Thank you for using our service")
 time.sleep(1.5)
