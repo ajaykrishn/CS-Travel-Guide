@@ -77,8 +77,8 @@ while op2:
             elif op4=="c":
                 delete(con)
             elif op4=="d":
-                id=int(input("Enter Reference id: "))
-                show_reviews(con,id)
+                place=input("Enter the place")
+                show_reviews(con,place)
                 time.sleep(1)
             elif op4=='e':
                 op3=0
