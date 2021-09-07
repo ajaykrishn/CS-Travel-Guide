@@ -1,7 +1,6 @@
 import webbrowser,time               #built-in modules
 import wikipedia                 #install by : pip install wikipedia
 from review_mod import *             #program module
-import mysql.connector as mysql  #install by : pip install mysql-connector-python
 import booking
 from dtbs_mod import *        #program module
 
@@ -30,7 +29,7 @@ while op2:
             p_wiki=result.split()[0]
             status(con,infoplace,p_wiki)
             print("\nReviews:")
-            show_reviews(con,infoplace,p_wiki)
+            show_reviews_info(con,infoplace,p_wiki)
             ch=input("Do you want to add review?(y/n): ")
             if ch.lower()=="y":
                 create(con,infoplace)
@@ -70,7 +69,8 @@ while op2:
             elif op4=="c":
                 delete(con)
             elif op4=="d":
-                show_reviews(con)
+                id=int(input("Enter Reference id: "))
+                show_reviews(con,id)
             elif op4=='e':
                 op3=0
             else:
@@ -83,7 +83,6 @@ while op2:
     else:
         print("Please enter a valid choice.")
 
-curs.close()
 con.close()
 
 print("Thank you for using this service")
