@@ -1,14 +1,14 @@
-import webbrowser,time               #built-in modules
+import webbrowser,time,os               #built-in modules
 from review_mod import *             #program module
 import booking
 from dtbs_mod import *        #program module
 try:
     import wikipedia                 # by pip install wikipedia
 except:
-    import subprocess
-    subprocess.call('start /wait Run.py', shell=True) #install wikipedia
+    inst_wiki()
+    import wikipedia
 
-welcome()
+print("Please Enter your Mysql Credintials to continue:")
 
 con_check=1
 while con_check:
@@ -18,6 +18,7 @@ while con_check:
     except Exception as e:
         print(e)
         print("Please try again.\n")
+os.system("cls")
 
 op2=1
 
