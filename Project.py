@@ -1,4 +1,4 @@
-import webbrowser,time,os               #built-in modules
+import time,os               #built-in modules
 from review_mod import *             #program module
 import booking
 from dtbs_mod import *        #program module
@@ -8,6 +8,7 @@ except:
     inst_wiki()
     import wikipedia
 
+welcome()
 print("Please Enter your Mysql Credintials to continue:")
 
 con_check=1
@@ -19,6 +20,8 @@ while con_check:
         print(e)
         print("Please try again.\n")
 os.system("cls")
+
+welcome()
 
 op2=1
 
