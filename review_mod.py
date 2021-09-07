@@ -19,7 +19,7 @@ def create(conn,place):   #for writing reviews
         f=f+1
     curs.close()
 
-def show_reviews_info(conn,place,pl_wiki):  #for displaying reviews
+def show_reviews_info(conn,place,pl_wiki):  #for displaying reviews along with places
 	curs=conn.cursor()
 	curs.execute("SELECT usr_name,REVIEWS,revdate,trvl_avl FROM Reviews WHERE Place in (%s,%s)",(place,pl_wiki))
 	rev=curs.fetchall()
@@ -59,7 +59,7 @@ def delete(conn): #for deleting reviews previously entered
     conn.commit()
     curs.close()
 
-def status(conn,pl,plw):
+def status(conn,pl,plw):     #show status of a place if available
     curs=conn.cursor()
     curs.execute("SELECT trvl_avl,rev_id,usr_name,revdate FROM Reviews WHERE Place=%s or Place=%s GROUP BY revdate HAVING revdate=max(revdate);",(pl,plw))
     l=curs.fetchall()
@@ -72,18 +72,18 @@ def status(conn,pl,plw):
         print("Current Status: (Please add through reviews)")
     curs.close()
 
-def show_reviews(conn,id,f="d"):
+def show_reviews(conn,id,f="d"):     #show reviews according to revid
     curso=conn.cursor()
     curso.execute("SELECT Reviews,Place FROM Reviews WHERE rev_id=%s",(id,))
     r=curso.fetchone()
     place,rev=r[1],r[0]
     if r!=None:
-        if f=='edit':
+        if f=='edit':       #show reviews in edit op
             print("Old review of",place,":",rev)
-        elif f=='d':
+        elif f=='d':        #show reviews according to id
             print("Your review of",place,":",rev)
     else:
-        if f=='d':
+        if f=='d':          
             print("Review id doesn't exist")
     curso.close()
 
