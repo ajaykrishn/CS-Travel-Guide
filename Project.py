@@ -75,6 +75,7 @@ while op2:
             elif op4=="d":
                 id=int(input("Enter Reference id: "))
                 show_reviews(con,id)
+                time.sleep(1)
             elif op4=='e':
                 op3=0
             else:
