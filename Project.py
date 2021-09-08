@@ -31,7 +31,7 @@ while op2:
 
     if q==1:
         try:
-            infoplace=input("Enter the place you would like to know about : ")
+            infoplace=input("Enter the place you would like to know about (in Kerala only) : ")#view reviews
             result=wikipedia.summary(infoplace, sentences=5)
             print(result)
             p_wiki=result.split()[0]
@@ -43,7 +43,7 @@ while op2:
                 create(con,infoplace)
             print()
         except:
-            print("Place is not available in our database.Please check spelling or other mistakes.")
+            print("Place is not available in our database.Please check for spelling errors or other mistakes.")
         time.sleep(2)
 
     elif q==2:
