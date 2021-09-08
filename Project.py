@@ -71,14 +71,18 @@ while op2:
             if op4=='a':
                 p=input("Enter the Place: ")
                 create(con,p)
+                op3=0
             elif op4=="b":
                 edit(con)
+                op3=0
             elif op4=="c":
                 delete(con)
+                op3=0
             elif op4=="d":
                 id=int(input("Enter the reference id"))
                 show_reviews(con,id)
                 time.sleep(1)
+                op3=0
             elif op4=='e':
                 op3=0
             else:
