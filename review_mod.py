@@ -63,11 +63,14 @@ def status(conn,pl,plw):     #show status of a place if available
     curs=conn.cursor()
     curs.execute("SELECT trvl_avl,rev_id,usr_name,revdate FROM Reviews WHERE Place=%s or Place=%s GROUP BY revdate HAVING revdate=max(revdate);",(pl,plw))
     l=curs.fetchall()
-    sta=l[0][0]
-    date=l[0][3]
-    name=l[0][2]
-    if sta!="Data not available":
-        print("Current Status ( last updated on",date,'by',name,') :',sta)
+    if l:
+        sta=l[0][0]
+        date=l[0][3]
+        name=l[0][2]
+        if sta!="Data not available":
+            print("Current Status ( last updated on",date,'by',name,') :',sta)
+        else:
+            print("Current Status: (Please add through reviews)")
     else:
         print("Current Status: (Please add through reviews)")
     curs.close()
