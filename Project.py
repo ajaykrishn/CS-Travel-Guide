@@ -30,7 +30,7 @@ while op2:
 
     if q==1:
         try:
-            infoplace=input("Enter the place you would like to know about (in Kerala only) : ")#view reviews
+            infoplace=input("Enter the place you would like to know about : ")#view reviews
             result=wikipedia.summary(infoplace, sentences=5)
             print(result)
             p_wiki=result.split()[0]
@@ -42,7 +42,7 @@ while op2:
                 create(con,infoplace)
             print()
         except Exception as e:
-            print(e)
+            print("Error code:",e)
         time.sleep(2)
 
     elif q==2:
