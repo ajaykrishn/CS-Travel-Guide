@@ -21,7 +21,6 @@ while con_check:
         print("Please try again.\n")
 os.system("cls")
 
-welcome()
 
 op2=1
 
