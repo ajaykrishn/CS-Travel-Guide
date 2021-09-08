@@ -42,8 +42,8 @@ while op2:
             if ch.lower()=="y":
                 create(con,infoplace)
             print()
-        except:
-            print("Place is not available in our database.Please check for spelling errors or other mistakes.")
+        except Exception as e:
+            print(e)
         time.sleep(2)
 
     elif q==2:
