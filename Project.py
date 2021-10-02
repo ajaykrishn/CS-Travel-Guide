@@ -3,9 +3,9 @@ from review_mod import *             #program module
 import booking
 from dtbs_mod import *        #program module
 try:
-    import wikipedia                 # by pip install wikipedia
+    import wikipedia       #if exists          # by pip install wikipedia
 except:
-    inst_wiki()                 #option to install module
+    Wiki()                 #option to add file to path
     import wikipedia
 
 welcome()
