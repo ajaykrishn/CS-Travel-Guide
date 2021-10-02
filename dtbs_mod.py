@@ -1,8 +1,10 @@
-import os,subprocess
+import os,sys
 import mysql.connector as mysql
 
-def inst_wiki():
-    subprocess.call('start /wait Wikipedia_install.py', shell=True) #install wikipedia
+def Wiki():
+    path=os.getcwd()
+    wiki_path=p+r"\Wikipedia"
+    sys.path.append(wiki_path)
     
 def create_rev(fname,curso):  #creating database from dump file
     fd = open(fname, 'r')
