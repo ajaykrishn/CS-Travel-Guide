@@ -4,9 +4,11 @@ import booking
 from dtbs_mod import *        #program module
 try:
     import wikipedia       #if exists          # by pip install wikipedia
+    import pwinput
 except:
     Wiki()                 #option to add file to path
     import wikipedia
+    import pwinput
 
 welcome()
 print("Please Enter your Mysql Credintials to continue:")
