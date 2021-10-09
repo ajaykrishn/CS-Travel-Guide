@@ -6,17 +6,21 @@ import mysql.connector as mysql
 
 
 def Wiki():
-    """Add wikipedia module file to Python path"""
+    """Add wikipedia module and pwinput module file to Python path"""
     path = os.getcwd()
-    wiki_path = path + r"\Wikipedia"
+    wiki_path = path + r"\Wikipediam"
+    pw_path = path + r"\pwinput"
     sys.path.append(wiki_path)
+    sys.path.append(pw_path)
 
 
 try:
     import wikipedia
+    import pwinput
 except ImportError:
     Wiki()  # option to add file to path
     import wikipedia
+    import pwinput
 
 
 def welcome():  # welcome message
@@ -27,7 +31,7 @@ def welcome():  # welcome message
 
 def connectdb():
     usr = input("Enter Username: ")
-    psw = input("Enter Password: ")
+    psw = pwinput.pwinput("Enter Password: ")
     con = mysql.connect(host='localhost', user=usr, passwd=psw)
     curs = con.cursor()
     create_dbase(curs)
