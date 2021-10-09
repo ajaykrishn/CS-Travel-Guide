@@ -2,9 +2,12 @@ import os,sys
 import mysql.connector as mysql
 
 def Wiki():
-    path=os.getcwd()
-    wiki_path=p+r"\Wikipedia"
+    """Add wikipedia module and pwinput module file to Python path"""
+    path = os.getcwd()
+    wiki_path = path + r"\Wikipediam"
+    pw_path = path + r"\pwinput"
     sys.path.append(wiki_path)
+    sys.path.append(pw_path)
     
 def create_rev(fname,curso):  #creating database from dump file
     fd = open(fname, 'r')
@@ -21,7 +24,7 @@ def create_rev(fname,curso):  #creating database from dump file
           
 def connectdb():
      usr=input("Enter Username: ")
-     psw=input("Enter Password: ")
+     psw = pwinput.pwinput("Enter Password: ")
      con=mysql.connect(host='localhost',user=usr,passwd=psw)
      curs=con.cursor()
      create_dbase(curs)
