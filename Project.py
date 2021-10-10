@@ -1,91 +1,102 @@
-import time,os               #built-in modules
-from review_mod import *             #program module
-import booking
-from dtbs_mod import *        #program module
+"""M"""
+
+
+import os                 # built-in module
+import time               # built-in module
+import booking            # built-in module
+from review_mod import *  # program module
+from dtbs_mod import *    # program module
+
 try:
-    import wikipedia       #if exists          # by pip install wikipedia
-    import pwinput
+    import wikipedia  # Install by install wikipedia (if exists)
+    import pwinput    # Install by install pwinput (if exists)
 except:
-    Wiki()                 #option to add file to path
+    Wiki()            # Add modules to path
     import wikipedia
     import pwinput
 
-welcome()
+welcome()             # Welcome message
+
 print("Please Enter your Mysql Credintials to continue:")
 
 while True:
     try:
-        con=connectdb()
+        con = connectdb()  # Connect to Mysql
         break
     except Exception as e:
-        print(e)
+        print(e)      # Display encountered error
         print("Something went wrong.Please try again.\n")
-os.system("cls")
+
+os.system("cls")      # Clear terminal screen
 
 while True:
-    print('\n\t\tMain Menu\n\nChoose an option from the below listed : \n\n 1. Information of place \n 2. Hotel bookings \n 3. Reviews \n 4. Exit ')
-    q=input("\n\nYour choice (1,2,3,4) : ")
+    print('\n\t\tMain Menu\n\nChoose an option from the below listed : \n')
+    print(' 1. Reviws of places \n 2. Hotel bookings ')
+    print(' 3. Reviews \n 4. Attraction of the day ')
+    print(' 5. Exit ')
+    q = input("\n\nYour choice (1,2,3,4) : ")
 
-    if q=='1':
+    if q == '1':
         try:
-            infoplace=input("Enter the place you would like to know about : ")#view reviews
-            result=wikipedia.summary(infoplace, sentences=5)
-            print(result)
-            p_wiki=result.split()[0]
-            status(con,infoplace,p_wiki)
-            print("\nReviews:")
-            show_reviews_info(con,infoplace,p_wiki)
-            ch=input("Do you want to add review?(y/n): ")
-            if ch.lower()=="y":
-                create(con,infoplace)
-            print()
+            infoplace = input(
+                "Enter the place you would like to know about : ")
+            info(con, infoplace)     # Show reviews
         except Exception as e:
-            print("Error code:",e)
+            print("Error code:", e)
         time.sleep(0.5)
 
-    elif q=='2':
+    elif q == '2':
         print("\n\nEnter the website you would like to do your hotel booking in : \n 1. Yatra\n 2. Easemytrip\n 3. Exit \n\n")
         while True:
-            choice=input("Your response :")
-            if choice=="1":
+            choice = input("Your response :")
+            if choice == "1":
                 booking.yatra()
                 break
-            elif choice=="2":
+            elif choice == "2":
                 booking.easemytrip()
                 break
-            elif choice=="3":
+            elif choice == "3":
                 break
             else:
                 print("Sorry , please enter a valid option")
                 time.sleep(0.5)
 
-
-    elif q=='3':
+    elif q == '3':
         while True:
             print("\n\nEnter a : To write review \nEnter b : To edit a review \nEnter c : To delete a review \nEnter d : To view previous reviews \nEnter e : Exit this option")
-            op4=input("\n\nYour choice (a,b,c,d,e) : ")
-            if op4.lower()=='a':
-                p=input("Enter the Place: ")
-                create(con,p)
-                op3=0
-            elif op4.lower()=="b":
+            op4 = input("\n\nYour choice (a,b,c,d,e) : ")
+            if op4.lower() == 'a':
+                p = input("Enter the Place: ")
+                create(con, p)
+                op3 = 0
+            elif op4.lower() == "b":
                 edit(con)
-                op3=0
-            elif op4.lower()=="c":
+                op3 = 0
+            elif op4.lower() == "c":
                 delete(con)
-                op3=0
-            elif op4.lower()=="d":
-                id=int(input("Enter the reference id"))
-                show_reviews(con,id)
+                op3 = 0
+            elif op4.lower() == "d":
+                id = int(input("Enter the reference id"))
+                show_reviews(con, id)
                 time.sleep(1)
-                op3=0
-            elif op4.lower()=='e':
+                op3 = 0
+            elif op4.lower() == 'e':
                 break
             else:
                 print("Kindly enter a valid option")
                 time.sleep(0.5)
         time.sleep(0.7)
-    elif q=='4':
+    elif q == '4':
+        query = 'SELECT DISTINCT Place FROM reviews'
+        curs.execute(query)
+        placesl = curs.fetchall()
+        places = []
+        for i in placesl:
+            places.append(i[0])
+        attraction = random.choice(places)
+        info(attraction)
+
+    elif q == '5':
         break
 
     else:
@@ -94,4 +105,5 @@ while True:
 con.close()
 
 print("Thank you for using our service")
+
 time.sleep(1.5)
