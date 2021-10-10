@@ -3,17 +3,16 @@
 
 import os                 # built-in module
 import time               # built-in module
-import booking            # built-in module
+import booking            # built-in module 
 from review_mod import *  # program module
 from dtbs_mod import *    # program module
 
 try:
-    import wikipedia  # Install by install wikipedia (if exists)
+    import wikipedia      # Install by install wikipedia (if exists)
     import pwinput    # Install by install pwinput (if exists)
-except:
+except ImportError:
     Wiki()            # Add modules to path
     import wikipedia
-    import pwinput
 
 welcome()             # Welcome message
 
