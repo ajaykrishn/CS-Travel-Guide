@@ -1,5 +1,17 @@
 """M"""
+import os
+import sys
+import random
 
+
+def Wiki():  # Add wikipedia to Python path
+    path = os.getcwd()
+    wiki_path = path + r"\Wikipediam"
+    sys.path.append(wiki_path)
+
+
+Wiki()
+import wikipedia
 
 def welcome():  # welcome message
     print("\t\t\t\tWELCOME! \n\nThis program has been designed to help you find information regarding places in Kerala.We hope this will be of help to you in finding what you are looking for!\t\t\t\t\n")
@@ -9,13 +21,26 @@ def info(conn, infoplace):   # Show Reviews
     result = wikipedia.summary(infoplace, sentences=5)
     print(result)
     p_wiki = result.split()[0]
-    status(con, infoplace, p_wiki)
+    status(conn, infoplace, p_wiki)
     print("\nReviews:")
-    show_reviews_info(con, infoplace, p_wiki)
+    show_reviews_info(conn, infoplace, p_wiki)
     ch = input("Do you want to add review?(y/n): ")
     if ch.lower() == "y":
         create(conn, infoplace)
     print()
+
+
+def attrofday(conn):
+    curs = conn.cursor()
+    query = 'SELECT DISTINCT Place FROM reviews'
+    curs.execute(query)
+    placesl = curs.fetchall()
+    places = []
+    for i in placesl:
+        places.append(i[0])
+    attraction = random.choice(places)
+    info(conn, attraction)
+    curs.close()
 
 
 def create(conn, place):  # for writing reviews

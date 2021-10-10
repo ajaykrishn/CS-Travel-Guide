@@ -3,16 +3,9 @@
 
 import os                 # built-in module
 import time               # built-in module
-import booking            # built-in module 
+import booking            # built-in module
 from review_mod import *  # program module
 from dtbs_mod import *    # program module
-
-try:
-    import wikipedia      # Install by install wikipedia (if exists)
-    import pwinput    # Install by install pwinput (if exists)
-except ImportError:
-    Wiki()            # Add modules to path
-    import wikipedia
 
 welcome()             # Welcome message
 
@@ -84,16 +77,11 @@ while True:
             else:
                 print("Kindly enter a valid option")
                 time.sleep(0.5)
+
         time.sleep(0.7)
+    
     elif q == '4':
-        query = 'SELECT DISTINCT Place FROM reviews'
-        curs.execute(query)
-        placesl = curs.fetchall()
-        places = []
-        for i in placesl:
-            places.append(i[0])
-        attraction = random.choice(places)
-        info(attraction)
+        attrofday(con)
 
     elif q == '5':
         break

@@ -1,17 +1,8 @@
 """"""
 
 import os
-import sys
-from pwinput import pwinput
+import pwinput.pwinput as pw
 import mysql.connector as mysql
-
-
-def Wiki():  # Add wikipedia and pwinput module to Python path
-    path = os.getcwd()
-    wiki_path = path + r"\Wikipediam"
-    pw_path = path + r"\pwinput"
-    sys.path.append(wiki_path)
-    sys.path.append(pw_path)
 
 
 def create_rev(fname, curso):  # Create Tables in Mysql from dump file
@@ -30,7 +21,7 @@ def create_rev(fname, curso):  # Create Tables in Mysql from dump file
 
 def connectdb():              # Connect to Mysql
     usr = input("Enter Username: ")
-    psw = pwinput.pwinput("Enter Password: ")
+    psw = pw.pwinput("Enter Password: ")
     con = mysql.connect(host='localhost', user=usr, passwd=psw)
     curs = con.cursor()
     create_dbase(curs)
