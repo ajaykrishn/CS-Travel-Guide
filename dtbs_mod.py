@@ -1,4 +1,6 @@
-""""""
+"""Module Name : dtbs_mod.py
+   All functions related to Mysql connections 
+   and database creations."""
 
 import os
 import pwinput.pwinput as pw

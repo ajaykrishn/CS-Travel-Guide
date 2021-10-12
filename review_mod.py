@@ -1,4 +1,7 @@
-"""M"""
+"""Module name : review_mod.py
+   All functions related with accessing and manipulating
+   reviews"""
+
 import os
 import sys
 import random
@@ -12,6 +15,7 @@ def Wiki():  # Add wikipedia to Python path
 
 Wiki()
 import wikipedia
+
 
 def welcome():  # welcome message
     print("\t\t\t\tWELCOME! \n\nThis program has been designed to help you find information regarding places in Kerala.We hope this will be of help to you in finding what you are looking for!\t\t\t\t\n")

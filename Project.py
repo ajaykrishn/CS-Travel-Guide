@@ -1,4 +1,5 @@
-"""M"""
+"""Module name : Project.py
+   Main project framework"""
 
 
 import os                 # built-in module
@@ -79,7 +80,7 @@ while True:
                 time.sleep(0.5)
 
         time.sleep(0.7)
-    
+
     elif q == '4':
         attrofday(con)
 
