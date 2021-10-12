@@ -113,11 +113,11 @@ def delete(conn):  # for deleting reviews previously entered
 def status(conn, pl, plw):  # show status of a place if available
     curs = conn.cursor()
     curs.execute("SELECT trvl_avl,rev_id,usr_name,revdate FROM Reviews WHERE Place=%s or Place=%s GROUP BY revdate HAVING revdate=max(revdate);", (pl, plw))
-    l = curs.fetchall()
-    if l:
-        sta = l[0][0]
-        date = l[0][3]
-        name = l[0][2]
+    dat = curs.fetchall()
+    if dat:
+        sta = dat[0][0]
+        date = dat[0][3]
+        name = dat[0][2]
         if sta != "Data not available":
             print("Current Status ( last updated on", date, 'by', name, ') :', sta)
         else:
@@ -132,7 +132,7 @@ def show_reviews(conn, id, f="d"):  # show reviews according to revid
     curso.execute("SELECT Reviews,Place FROM Reviews WHERE rev_id=%s", (id,))
     r = curso.fetchone()
     place, rev = r[1], r[0]
-    if r != None:
+    if r:
         if f == 'edit':  # show reviews in edit op
             print("Old review of", place, ":", rev)
         elif f == 'd':  # show reviews according to id
