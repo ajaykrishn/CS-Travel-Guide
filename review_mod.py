@@ -2,9 +2,9 @@
    All functions related with accessing and manipulating
    reviews"""
 
-import os
-import sys
-import random
+import os       # built-in module
+import sys      # built-in module
+import random   # built-in module
 
 
 def Wiki():  # Add wikipedia to Python path
@@ -14,12 +14,16 @@ def Wiki():  # Add wikipedia to Python path
 
 
 Wiki()
-import wikipedia
+import wikipedia     # Only import after appending to path
 
 
 def welcome():  # welcome message
-    print("\t\t\t\tWELCOME! \n\nThis program has been designed to help you find information regarding places in Kerala.We hope this will be of help to you in finding what you are looking for!\t\t\t\t\n")
-
+    print("\t\t\t\tWELCOME! \n")
+    wel1 = "This program has been designed to help you find information "
+    wel2 = "regarding places in Kerala.We hope this will be of help to you "
+    wel3 = "in finding what you are looking for!\t\t\t\t\n"
+    wel = wel1 + wel2 + wel3
+    print(wel)
 
 def info(conn, infoplace):   # Show Reviews
     result = wikipedia.summary(infoplace, sentences=5)
@@ -34,7 +38,7 @@ def info(conn, infoplace):   # Show Reviews
     print()
 
 
-def attrofday(conn):
+def attrofday(conn):      # Attraction of the day
     curs = conn.cursor()
     query = 'SELECT DISTINCT Place FROM reviews'
     curs.execute(query)
@@ -58,19 +62,20 @@ def create(conn, place):  # for writing reviews
         n = curs.fetchone()[0]
         print("Reference id for editing or deleting your review is: ", n + 1)
         t = (n + 1, name, place, m, ctad)
-        s = 'insert into Reviews(rev_id,usr_name,Place,Reviews,trvl_avl) values(%s,%s,%s,%s,%s)'
-        curs.execute(s, t)
+        sql1 = 'INSERT INTO Reviews(rev_id,usr_name,Place,Reviews,trvl_avl) '
+        sql2 = "values(%s,%s,%s,%s,%s)"
+        sql = sql1 + sql2
+        curs.execute(sql, t)
         conn.commit()
-        f = int(input('Enter zero to quit '))
+        f = int(input('Enter zero to quit. '))
         f = f + 1
     curs.close()
 
 
-# for displaying reviews along with places
-def show_reviews_info(conn, place, pl_wiki):
+def show_reviews_info(conn, place, pl_wiki):     # for displaying reviews
     curs = conn.cursor()
-    curs.execute(
-        "SELECT usr_name,REVIEWS,revdate,trvl_avl FROM Reviews WHERE Place in (%s,%s)", (place, pl_wiki))
+    sql = "SELECT usr_name,REVIEWS,revdate,trvl_avl FROM Reviews WHERE Place in (%s,%s)"
+    curs.execute(sql, (place, pl_wiki))
     rev = curs.fetchall()
     if rev:
         for i in rev:
@@ -81,7 +86,7 @@ def show_reviews_info(conn, place, pl_wiki):
     curs.close()
 
 
-def edit(conn):  # for editing reviews previously entered
+def edit(conn):     # for editing reviews previously entered
     curs = conn.cursor()
     a = int(input("Enter Review Id for the review you would like to edit: "))
     show_reviews(conn, a, 'edit')
@@ -97,7 +102,7 @@ def edit(conn):  # for editing reviews previously entered
     curs.close()
 
 
-def delete(conn):  # for deleting reviews previously entered
+def delete(conn):        # for deleting reviews previously entered
     curs = conn.cursor()
     d = int(input("Enter the reference id for the review you would like to delete: "))
     s = ('Delete from Reviews where rev_id=%s')
@@ -112,7 +117,10 @@ def delete(conn):  # for deleting reviews previously entered
 
 def status(conn, pl, plw):  # show status of a place if available
     curs = conn.cursor()
-    curs.execute("SELECT trvl_avl,rev_id,usr_name,revdate FROM Reviews WHERE Place=%s or Place=%s GROUP BY revdate HAVING revdate=max(revdate);", (pl, plw))
+    query1 = "SELECT trvl_avl,rev_id,usr_name,revdate FROM Reviews WHERE Place=%s "
+    query2 = "or Place=%s GROUP BY revdate HAVING revdate=max(revdate)"
+    query = query1 + query2            # query cut short to compensate hard copy 
+    curs.execute(query, (pl, plw))
     dat = curs.fetchall()
     if dat:
         sta = dat[0][0]
@@ -127,17 +135,17 @@ def status(conn, pl, plw):  # show status of a place if available
     curs.close()
 
 
-def show_reviews(conn, id, f="d"):  # show reviews according to revid
+def show_reviews(conn, id, mode="d"):  # show reviews according to revid
     curso = conn.cursor()
     curso.execute("SELECT Reviews,Place FROM Reviews WHERE rev_id=%s", (id,))
     r = curso.fetchone()
-    place, rev = r[1], r[0]
     if r:
-        if f == 'edit':  # show reviews in edit op
+        place, rev = r[1], r[0]
+        if mode == 'edit':  # show reviews in edit op
             print("Old review of", place, ":", rev)
-        elif f == 'd':  # show reviews according to id
+        elif mode == 'd':  # show reviews according to id
             print("Your review of", place, ":", rev)
     else:
-        if f == 'd':
+        if mode == 'd':
             print("Review id doesn't exist")
     curso.close()

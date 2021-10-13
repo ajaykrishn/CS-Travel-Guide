@@ -17,29 +17,30 @@ while True:
         con = connectdb()  # Connect to Mysql
         break
     except Exception as e:
-        print(e)      # Display encountered error
+        print("Msg:",e)      # Display encountered error
         print("Something went wrong.Please try again.\n")
 
 os.system("cls")      # Clear terminal screen
 
 while True:
     print('\n\t\tMain Menu\n\nChoose an option from the below listed : \n')
-    print(' 1. Reviws of places \n 2. Hotel bookings ')
+    print(' 1. Reviews of places \n 2. Hotel bookings ')
     print(' 3. Reviews \n 4. Attraction of the day ')
     print(' 5. Exit ')
     q = input("\n\nYour choice (1,2,3,4) : ")
 
     if q == '1':
         try:
-            infoplace = input(
-                "Enter the place you would like to know about : ")
+            infoplace = input("Enter the place you would like to know about : ")
             info(con, infoplace)     # Show reviews
         except Exception as e:
             print("Error code:", e)
         time.sleep(0.5)
 
     elif q == '2':
-        print("\n\nEnter the website you would like to do your hotel booking in : \n 1. Yatra\n 2. Easemytrip\n 3. Exit \n\n")
+        print("\n\nEnter the website you would like to do your hotel booking in : ")
+        print(" 1. Yatra\n 2. Easemytrip\n 3. Exit \n\n")
+
         while True:
             choice = input("Your response :")
             if choice == "1":
@@ -56,7 +57,9 @@ while True:
 
     elif q == '3':
         while True:
-            print("\n\nEnter a : To write review \nEnter b : To edit a review \nEnter c : To delete a review \nEnter d : To view previous reviews \nEnter e : Exit this option")
+            print("\n\nEnter a : To write review \nEnter b : To edit a review ")
+            print("Enter c : To delete a review \nEnter d : To view previous reviews ")
+            print("Enter e : Exit this option")
             op4 = input("\n\nYour choice (a,b,c,d,e) : ")
             if op4.lower() == 'a':
                 p = input("Enter the Place: ")
@@ -69,7 +72,7 @@ while True:
                 delete(con)
                 op3 = 0
             elif op4.lower() == "d":
-                id = int(input("Enter the reference id"))
+                id = int(input("Enter the reference id: "))
                 show_reviews(con, id)
                 time.sleep(1)
                 op3 = 0

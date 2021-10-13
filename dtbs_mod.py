@@ -2,9 +2,9 @@
    All functions related to Mysql connections 
    and database creations."""
 
-import os
-import pwinput.pwinput as pw
-import mysql.connector as mysql
+import os                        # built-in module
+import pwinput.pwinput as pw     # pip install pwinput
+import mysql.connector as mysql  # pip install mysql-connector-python
 
 
 def create_rev(fname, curso):  # Create Tables in Mysql from dump file
@@ -32,8 +32,10 @@ def connectdb():              # Connect to Mysql
 
 
 def create_dbase(curs):  # Creating database in Mysql
-    curs.execute(
-        "SELECT count(*) FROM information_schema.TABLES WHERE (TABLE_SCHEMA = 'Review') AND (TABLE_NAME = 'Reviews')")
+    sql1 = "SELECT count(*) FROM information_schema.TABLES WHERE "
+    sql2 = "(TABLE_SCHEMA = 'Review') AND (TABLE_NAME = 'Reviews')"
+    sql = sql1 + sql2
+    curs.execute(sql)
     c = curs.fetchone()[0]
     if c == 0:
         curs.execute("Create Database Review")
