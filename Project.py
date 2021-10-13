@@ -57,27 +57,32 @@ while True:
 
     elif q == '3':
         while True:
-            print("\n\nEnter a : To write review \nEnter b : To edit a review ")
+            print("\n\t\tReviews\n\nEnter an option from the below listed : \n")
+            print("Enter a : To write review \nEnter b : To edit a review ")
             print("Enter c : To delete a review \nEnter d : To view previous reviews ")
             print("Enter e : Exit this option")
             op4 = input("\n\nYour choice (a,b,c,d,e) : ")
+
             if op4.lower() == 'a':
                 p = input("Enter the Place: ")
                 create(con, p)
-                op3 = 0
+
             elif op4.lower() == "b":
                 edit(con)
-                op3 = 0
+                time.sleep(0.5)
+
             elif op4.lower() == "c":
                 delete(con)
-                op3 = 0
+                time.sleep(0.5)
+
             elif op4.lower() == "d":
                 id = int(input("Enter the reference id: "))
                 show_reviews(con, id)
                 time.sleep(1)
-                op3 = 0
+
             elif op4.lower() == 'e':
                 break
+
             else:
                 print("Kindly enter a valid option")
                 time.sleep(0.5)
