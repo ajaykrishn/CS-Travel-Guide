@@ -20,12 +20,13 @@ while True:
         print("Msg:",e)      # Display encountered error
         print("Something went wrong.Please try again.\n")
 
+time.sleep(0.5)       # Display connection status
 os.system("cls")      # Clear terminal screen
 
 while True:
     print('\n\t\tMain Menu\n\nChoose an option from the below listed : \n')
-    print(' 1. Reviews of places \n 2. Hotel bookings ')
-    print(' 3. Reviews \n 4. Attraction of the day ')
+    print(' 1. Reviews of places \n 2. Your Reviews ')
+    print(' 3. Hotel Bookings \n 4. Attraction of the day ')
     print(' 5. Exit ')
     q = input("\n\nYour choice (1,2,3,4) : ")
 
@@ -38,24 +39,6 @@ while True:
         time.sleep(0.5)
 
     elif q == '2':
-        print("\n\nEnter the website you would like to do your hotel booking in : ")
-        print(" 1. Yatra\n 2. Easemytrip\n 3. Exit \n\n")
-
-        while True:
-            choice = input("Your response :")
-            if choice == "1":
-                booking.yatra()
-                break
-            elif choice == "2":
-                booking.easemytrip()
-                break
-            elif choice == "3":
-                break
-            else:
-                print("Sorry , please enter a valid option")
-                time.sleep(0.5)
-
-    elif q == '3':
         while True:
             print("\n\t\tReviews\n\nEnter an option from the below listed : \n")
             print("Enter a : To write review \nEnter b : To edit a review ")
@@ -88,6 +71,24 @@ while True:
                 time.sleep(0.5)
 
         time.sleep(0.7)
+    
+    elif q == '3':
+        print("\n\nEnter the website you would like to do your hotel booking in : ")
+        print(" 1. Yatra\n 2. Easemytrip\n 3. Exit \n\n")
+
+        while True:
+            choice = input("Your response :")
+            if choice == "1":
+                booking.yatra()
+                break
+            elif choice == "2":
+                booking.easemytrip()
+                break
+            elif choice == "3":
+                break
+            else:
+                print("Sorry , please enter a valid option")
+                time.sleep(0.5)
 
     elif q == '4':
         attrofday(con)
@@ -101,5 +102,4 @@ while True:
 con.close()
 
 print("Thank you for using our service")
-
 time.sleep(1.5)
