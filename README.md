@@ -1,4 +1,4 @@
-## Travel Guide
+# Travel Guide
 
 # REQUIREMENTS
 	SOME MODULES ARE ALWAYS IDEAL TO BE INSTALLED
@@ -32,4 +32,4 @@
 
 # GITHUB
 	CODE IS AVAILABLE IN  https://github.com/Ajay-Krishnan-Balal/CS-Travel-Guide
-					 AND  https://github.com/AydinAdnan/computerxiic-project
+			 AND  https://github.com/AydinAdnan/computerxiic-project
