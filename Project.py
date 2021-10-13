@@ -17,7 +17,7 @@ while True:
         con = connectdb()  # Connect to Mysql
         break
     except Exception as e:
-        print("Msg:",e)      # Display encountered error
+        print("Msg:", e)      # Display encountered error
         print("Something went wrong.Please try again.\n")
 
 time.sleep(0.5)       # Display connection status
