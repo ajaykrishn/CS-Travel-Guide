@@ -1,8 +1,10 @@
+   
 import time
 import os
 import sys
 import webbrowser
 import mysql.connector as mysql
+import pwinput
 
 
 def Wiki():
@@ -16,7 +18,6 @@ def Wiki():
 
 try:
     import wikipedia
-    import pwinput
 except ImportError:
     Wiki()  # option to add file to path
     import wikipedia
