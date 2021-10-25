@@ -7,20 +7,6 @@ import pwinput.pwinput as pw     # pip install pwinput
 import mysql.connector as mysql  # pip install mysql-connector-python
 
 
-def create_rev(fname, curso):  # Create Tables in Mysql from dump file
-    fd = open(fname, 'r')
-    sqlFile = fd.read()
-    fd.close()
-    sqlCommands = sqlFile.split(';')
-
-    for command in sqlCommands:
-        try:
-            if command.strip() != '':
-                curso.execute(command)
-        except IOError as msg:
-            print("Command skipped: ", msg)
-
-
 def connectdb():              # Connect to Mysql
     usr = input("Enter Username: ")
     psw = pw.pwinput("Enter Password: ")
@@ -44,3 +30,17 @@ def create_dbase(curs):  # Creating database in Mysql
         create_rev(path, curs)
     else:
         curs.execute("Use Review")
+
+         
+def create_rev(fname, curso):  # Create Tables in Mysql from dump file
+    fd = open(fname, 'r')
+    sqlFile = fd.read()
+    fd.close()
+    sqlCommands = sqlFile.split(';')
+
+    for command in sqlCommands:
+        try:
+            if command.strip() != '':
+                curso.execute(command)
+        except IOError as msg:
+            print("Command skipped: ", msg)
