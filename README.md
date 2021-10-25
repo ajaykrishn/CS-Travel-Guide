@@ -31,5 +31,5 @@
 		AJAY
 
 # GITHUB
-	CODE IS AVAILABLE IN  [CS-Travel-Guide](https://github.com/Ajay-Krishnan-Balal/CS-Travel-Guide)
-			 AND  [computerxiic-project](https://github.com/AydinAdnan/computerxiic-project)
+	CODE IS AVAILABLE IN  [CS-Travel-Guide](https://github.com/Ajay-Krishnan-Balal/CS-Travel-Guide/)
+			 AND  [computerxiic-project](https://github.com/AydinAdnan/computerxiic-project/)
