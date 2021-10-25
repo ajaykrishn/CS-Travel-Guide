@@ -17,7 +17,7 @@ while True:
         con = connectdb()  # Connect to Mysql
         break
     except Exception as e:
-        print("Msg:", e)      # Display encountered error
+        print("Message:", e)      # Display encountered error
         print("Something went wrong.Please try again.\n")
 
 time.sleep(0.5)       # Display connection status
@@ -28,7 +28,7 @@ while True:
     print(' 1. Reviews of places \n 2. Your Reviews ')
     print(' 3. Hotel Bookings \n 4. Attraction of the day ')
     print(' 5. Exit ')
-    q = input("\n\nYour choice (1,2,3,4) : ")
+    q = input("\n\nYour choice (1,2,3,4,5) : ")
 
     if q == '1':
         try:
