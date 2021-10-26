@@ -1,0 +1,15 @@
+Hello!
+To run this program
+	1. Either Run setup.py to install lates versions of libraries or
+	   Extract the archives (older versions) (When extracting,create
+	   the folder thesame name as archives)
+	
+	2. Run Project.py
+
+If mysql connector is not installed earlier, add this line of code to 
+dtbs_mod.py
+	
+	 def mysqlp():  # Add wikipedia to Python path
+    		path = os.getcwd()
+    		mysql_path = path + r"\mysql"
+    		sys.path.append(mysql_path)
