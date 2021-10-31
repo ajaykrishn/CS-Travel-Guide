@@ -1,3 +1,15 @@
+""" Install latest versions of required modules
+    Interactive installation"""
+
+### NOT PART OF THE MAIN PROJECT ###
+### FOR USERS ONLY ###
+### DO NOT TAMPER ANY CODE LINES ###
+### DIRECT INTERACTION WITH SYSTEM ###
+### CAN CAUSE DATA LOSSES ###
+### FILES ARE DOWNLOADED ONLY FOR THE PROJECT ###
+### FOR INSTALLING TO SYSTEM REFER README ###
+
+
 import os
 import sys
 import time
