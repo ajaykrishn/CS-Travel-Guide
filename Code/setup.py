@@ -5,8 +5,8 @@
 ### FOR USERS ONLY ###
 ### DO NOT TAMPER ANY CODE LINES ###
 ### DIRECT INTERACTION WITH SYSTEM ###
-### CAN CAUSE DATA LOSSES ###
-### FILES ARE DOWNLOADED ONLY FOR THE PROJECT ###
+### CAN CAUSE DATA LOSSES IF TAMPERED ###
+### MODULE FILES ARE DOWNLOADED ONLY FOR THE PROJECT ###
 ### FOR INSTALLING TO SYSTEM REFER README ###
 
 
@@ -16,10 +16,13 @@ import time
 import subprocess
 
 def install(name, file):
+    """Installs the file to the required target files
+        mentioned in the code"""
     target = "--target=" + os.getcwd() + "\\" + file
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', name , target ])
 
 def installall():
+    """ Installs all the module files """
     install("mysql-connector-python", "mysql" )
     install("wikipedia", "Wikipediam" )
     install("pwinput", "pwinput" )

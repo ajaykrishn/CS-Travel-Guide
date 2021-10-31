@@ -1,5 +1,0 @@
-This Folder Should contain Wikipedia library
-
-Run This on cmd:
-   
-    pip install wikipedia --target=..<path_to_file>..\Code\Wikipediam

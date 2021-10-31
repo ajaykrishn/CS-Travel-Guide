@@ -1,5 +1,0 @@
-This Folder Should contain pwinput module
-
-Run This on cmd:
-   
-    pip install pwinput --target=..<path_to_file>..\Code\pwinput
